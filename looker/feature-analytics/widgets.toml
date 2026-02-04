@@ -1,0 +1,155 @@
+[newtab_widgets]
+title = "Newtab Widgets (Lists & Focus Timer)"
+product = "firefox_desktop"
+
+# =============================================================================
+# Lists Widget
+# =============================================================================
+
+# --- IMPRESSION ---
+
+[metrics.lists_impressions]
+title = "Lists Impressions"
+description = "Number of times the Lists widget was viewable on screen"
+type = "event_count"
+event = "newtab.widgets_lists_impression"
+
+# --- ENGAGE ---
+
+[metrics.lists_user_events]
+title = "Lists User Events"
+description = "Total user interactions with the Lists widget (creates, edits, deletes)"
+type = "event_count"
+event = "newtab.widgets_lists_user_event"
+
+[metrics.lists_user_events_by_action]
+title = "Lists User Events by Action"
+description = "Count of Lists user events broken down by action type (list_create, task_create, etc.)"
+type = "event_extra"
+aggregation = "count"
+event = "newtab.widgets_lists_user_event"
+extra = "user_action"
+
+[metrics.lists_engagement_rate]
+title = "Lists Engagement Rate"
+description = "Ratio of Lists user events to impressions"
+type = "ratio"
+numerator = "lists_user_events"
+denominator = "lists_impressions"
+
+# --- CONVERT ---
+
+[metrics.lists_list_creates]
+title = "Lists List Creates"
+description = "Number of list_create actions in the Lists widget"
+type = "event_count"
+event = "newtab.widgets_lists_user_event"
+where = "user_action = 'list_create'"
+
+[metrics.lists_task_creates]
+title = "Lists Task Creates"
+description = "Number of task_create actions in the Lists widget"
+type = "event_count"
+event = "newtab.widgets_lists_user_event"
+where = "user_action = 'task_create'"
+
+[metrics.lists_conversion_events]
+title = "Lists Conversion Events"
+description = "Number of list_create or task_create actions (conversion = first meaningful creation)"
+type = "event_count"
+event = "newtab.widgets_lists_user_event"
+where = "user_action IN ('list_create', 'task_create')"
+
+[metrics.lists_conversion_rate]
+title = "Lists Conversion Rate"
+description = "Ratio of conversion events (list/task creates) to impressions"
+type = "ratio"
+numerator = "lists_conversion_events"
+denominator = "lists_impressions"
+
+# --- DISENGAGE ---
+
+[metrics.lists_change_display]
+title = "Lists Change Display"
+description = "Number of times users toggled the Lists widget display (enable or disable)"
+type = "event_count"
+event = "newtab.widgets_lists_change_display"
+
+[metrics.lists_disengage_rate]
+title = "Lists Disengage Rate"
+description = "Ratio of display toggle events to impressions"
+type = "ratio"
+numerator = "lists_change_display"
+denominator = "lists_impressions"
+
+# =============================================================================
+# Focus Timer Widget
+# =============================================================================
+
+# --- IMPRESSION ---
+
+[metrics.timer_impressions]
+title = "Timer Impressions"
+description = "Number of times the Focus Timer widget was viewable on screen"
+type = "event_count"
+event = "newtab.widgets_timer_impression"
+
+# --- ENGAGE ---
+
+[metrics.timer_user_events]
+title = "Timer User Events"
+description = "Total user interactions with the Focus Timer (set, play, pause, reset, etc.)"
+type = "event_count"
+event = "newtab.widgets_timer_user_event"
+
+[metrics.timer_user_events_by_action]
+title = "Timer User Events by Action"
+description = "Count of Timer user events broken down by action type (timer_set, timer_play, etc.)"
+type = "event_extra"
+aggregation = "count"
+event = "newtab.widgets_timer_user_event"
+extra = "user_action"
+
+[metrics.timer_toggle_notification]
+title = "Timer Toggle Notification"
+description = "Number of times users toggled timer notifications"
+type = "event_count"
+event = "newtab.widgets_timer_toggle_notification"
+
+[metrics.timer_engagement_rate]
+title = "Timer Engagement Rate"
+description = "Ratio of Timer user events to impressions"
+type = "ratio"
+numerator = "timer_user_events"
+denominator = "timer_impressions"
+
+# --- CONVERT ---
+
+[metrics.timer_set_events]
+title = "Timer Set Events"
+description = "Number of timer_set actions (conversion = user sets a timer)"
+type = "event_count"
+event = "newtab.widgets_timer_user_event"
+where = "user_action = 'timer_set'"
+
+[metrics.timer_conversion_rate]
+title = "Timer Conversion Rate"
+description = "Ratio of timer_set events to impressions"
+type = "ratio"
+numerator = "timer_set_events"
+denominator = "timer_impressions"
+
+# --- DISENGAGE ---
+
+[metrics.timer_change_display]
+title = "Timer Change Display"
+description = "Number of times users toggled the Focus Timer widget display (enable or disable)"
+type = "event_count"
+event = "newtab.widgets_timer_change_display"
+
+[metrics.timer_disengage_rate]
+title = "Timer Disengage Rate"
+description = "Ratio of display toggle events to impressions"
+type = "ratio"
+numerator = "timer_change_display"
+denominator = "timer_impressions"
