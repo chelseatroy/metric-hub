@@ -8,4 +8,4 @@ Refer to $CLAUDE_PROJECT_DIR/ai-coding-tools/context/repo-info.md
 
 ## How to Work with Developers
 
-Refer to $CLAUDE_PROJECT_DIR/ai-coding-tools/rules-of-engagement.md
+Refer to $CLAUDE_PROJECT_DIR/ai-coding-tools/processes/rules-of-engagement.md
